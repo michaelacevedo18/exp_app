@@ -1,3 +1,4 @@
+import 'package:exp_app/utils/constants.dart';
 import 'package:flutter/material.dart';
 
 class BSNumKeyboard extends StatefulWidget {
@@ -109,6 +110,34 @@ class _BSNumKeyboardState extends State<BSNumKeyboard> {
                           ),
                         )
                       ])
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: GestureDetector(
+                          child: Constants.customButton(
+                              Colors.transparent, Colors.red, 'CANCELAR'),
+                          onTap: () {
+                            setState(() {
+                              import = '0.00';
+                              Navigator.pop(context);
+                            });
+                          },
+                        ),
+                      ),
+                      Expanded(
+                        child: GestureDetector(
+                          child: Constants.customButton(
+                              Colors.green, Colors.transparent, 'ACEPTAR'),
+                          onTap: () {
+                            setState(() {
+                              if (import.length == 0.0) import = '0.00';
+                              Navigator.pop(context);
+                            });
+                          },
+                        ),
+                      ),
                     ],
                   )
                 ],
